@@ -12,7 +12,7 @@ import * as monaco from "monaco-editor/esm/vs/editor/editor.main.js";
 import { nextTick, onMounted } from "vue";
 
 let editor;
-
+const languageId = "formulaLang";
 const customLanguage = {
   // 定义关键词和操作符
   keywords: ["Add", "Subtract", "Multiply", "Divide"],
@@ -58,8 +58,9 @@ export default {
         document.getElementById("v-monaco-editor"),
         {
           value: ``,
-          language: "formulaLang",
+          language: languageId,
           theme: "vs-dark",
+          automaticLayout: true, //是否开启自动布局
           // minimap: {
           //   enabled: false,
           // },
@@ -127,14 +128,15 @@ export default {
           return { suggestions: suggestions };
         },
       };
+      // 注册语言配置
+      monaco.languages.register({ id: languageId });
       // 定义自定义的语法高亮规则
-      monaco.languages.setMonarchTokensProvider("formulaLang", customLanguage);
+      monaco.languages.setMonarchTokensProvider(languageId, customLanguage);
       // 注册自动补全
-      monaco.languages.registerCompletionItemProvider("formulaLang", {
-        provideCompletionItems: (model, position) => {
-          console.log("ceshi");
-        },
-      });
+      monaco.languages.registerCompletionItemProvider(
+        languageId,
+        customCompletionProvider
+      );
 
       //监听变化
       editor.onDidChangeModelContent((e) => {
