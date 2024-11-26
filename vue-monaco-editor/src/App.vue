@@ -70,6 +70,7 @@ export default {
       const customCompletionProvider = {
         // 提供自动补全项
         provideCompletionItems: (model, position) => {
+          console.log(model);
           const suggestions = [
             {
               label: "Add",
