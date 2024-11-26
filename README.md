@@ -66,7 +66,7 @@ const code = `let x = 10 + 20`;
 4. 将句子劈开，—— 分词，tokenizer 分词器
 5. 将分词连接，—— 语法分析，parser
 6. 将分词处理理解，—— 语义分析，
-7. 生成器 generator、执行器 interpretor（飞书表格公式执行器就是执行器）
+7. 生成器 generator、执行器 interpretor（表格公式执行器就是执行器）
 
 程序里面没有什么特征是不能用 json 来描述的
 
