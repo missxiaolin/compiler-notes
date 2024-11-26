@@ -75,7 +75,7 @@ const code = `let x = 10 + 20`;
 
 代码（code）、低代码物料（block、blocksuite）、流程（node + edge flow）
 
-## 从零到一架构实现一个类似飞书表格公式字段编译执行器，请简要说说你的设计思路
+## 从零到一架构实现一个表格公式字段编译执行器，请简要说说你的设计思路
 
 1. 富文本编辑器 -> 光标处理、框选处理
 2. 语法高亮+自动补全 -> LSP，monaco-editor Language Server Protocal
